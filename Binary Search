@@ -1,0 +1,136 @@
+=======================================Binary search in java with duplicate values===================================================
+import java.util.*;
+
+class HelloWorld {
+    public static void binarySearchDuplicates(int arr[], int left, int right, int target) {
+        if (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (target == arr[mid]) {
+                // Found the target element, now search for duplicates
+                System.out.print("Element found at index " + mid + ", ");
+                
+                // Search for duplicates to the left of mid
+                int leftIndex = mid - 1;
+                while (leftIndex >= left && arr[leftIndex] == target) {
+                    System.out.print("Element found at index " + leftIndex + ", ");
+                    leftIndex--;
+                }
+                
+                // Search for duplicates to the right of mid
+                int rightIndex = mid + 1;
+                while (rightIndex <= right && arr[rightIndex] == target) {
+                    System.out.print("Element found at index " + rightIndex + ", ");
+                    rightIndex++;
+                }
+            } else if (target < arr[mid]) {
+                binarySearchDuplicates(arr, left, mid - 1, target);
+            } else {
+                binarySearchDuplicates(arr, mid + 1, right, target);
+            }
+        } else {
+            System.out.print("Element not found");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int target = sc.nextInt();
+        binarySearchDuplicates(arr, 0, n - 1, target);
+    }
+}
+================================= Binary search in javascript with duplicate values ===============================================================
+const input = prompt("Enter numbers separated by space ");
+const arr = input.split(" ").map(Number);
+const target = prompt("Enter target number ");
+binarySearch(arr,0,arr.length-1,target);
+function binarySearch(arr,left,right,target) {
+    if(left <= right){
+        let mid = Math.floor(left +(right-left)/2);
+        if(target == arr[mid]){
+            console.log(`Element is found at index `,mid);
+            
+            let leftIndex = mid-1;
+            while(leftIndex >= 0 && target == arr[leftIndex]){
+                console.log(`Element is found at index `,leftIndex);
+                leftIndex--;
+            }
+            
+            let rightIndex = mid+1;
+            while(rightIndex >= 0 && target == arr[rightIndex]){
+                console.log(`Element is found at index `,rightIndex);
+                rightIndex++;
+            }
+        }
+        else if(target < arr[mid]){
+            binarySearch(arr,left,mid-1,target);
+        }
+        else{
+            binarySearch(arr,mid+1,right,target);
+        }
+    }
+    else{
+        console.log("Element is not found ");
+    }
+}
+========================================================Binary search to avoid passing extra parameters==================================================================
+import java.util.*;
+
+class BinarySearch {
+    private int[] arr;
+    private int left;
+    private int right;
+
+    public BinarySearch(int[] arr) {
+        this.arr = arr;
+        this.left = 0;
+        this.right = arr.length - 1;
+    }
+
+    public void search(int target) {
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                System.out.println("Element is found at index " + mid);
+
+                int leftIndex = mid - 1;
+                while (left <= leftIndex && arr[leftIndex] == target) {
+                    System.out.println("Element is found at index " + leftIndex);
+                    leftIndex--;
+                }
+
+                int rightIndex = mid + 1;
+                while (right >= rightIndex && arr[rightIndex] == target) {
+                    System.out.println("Element is found at index " + rightIndex);
+                    rightIndex++;
+                }
+                return;
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        System.out.print("Element is not present ");
+    }
+}
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int target = sc.nextInt();
+
+        BinarySearch binarySearch = new BinarySearch(arr);
+        binarySearch.search(target);
+    }
+}
