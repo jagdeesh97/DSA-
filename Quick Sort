@@ -1,0 +1,36 @@
+==========================Quick sort in javascript ==============================================================
+
+const input = prompt("Enter numbers seperated by space ");
+const arr = input.split(" ").map(Number);
+quickSort(arr,0,arr.length-1);
+
+function quickSort(arr,left,right) {
+    if(left < right){
+        let p = partition(arr,left,right);
+        quickSort(arr,left,p-1);
+        quickSort(arr,p+1,right);
+    }
+}
+
+
+function partition(arr,left,right) {
+    let pivot = arr[right];
+    let i = left - 1;
+    
+    for(let j=left; j<right; j++){
+        if(arr[j] < pivot){
+            i++;
+            swap(arr,i,j);
+        }
+    }
+    swap(arr,i+1,right);
+    return (i+1);
+}
+
+function swap(arr,i,j) {
+    let temp = arr[i];
+        arr[i]  = arr[j];
+        arr[j]  = temp;
+}
+
+console.log(arr.join(" "));
