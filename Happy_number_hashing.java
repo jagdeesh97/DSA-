@@ -27,6 +27,16 @@ public class Happy_number_hashing {
         System.out.print(isHappy(n));
     }
 }
+
+
+The time complexity of the code is O(k), where 'k' is the number of iterations it takes to determine whether 'n'
+    is a happy number or not. In most cases, 'k' is relatively small, as the algorithm converges to 1 quickly for 
+    happy numbers. However, in the worst case scenario, where 'n' is not a happy number, 'k' could be relatively large.
+
+The space complexity of the code is O(k), where 'k' is the number of iterations. This is because the code uses a HashMap 
+    to store previously seen numbers, and in the worst case, it might need to store 'k' different numbers before detecting
+    a cycle or reaching 1. Therefore, the space complexity is proportional to the number of iterations required to determine
+    whether 'n' is a happy number or not.
 //============================== Altrnative ===========================
 //
 //static int changeNumber(int n) {
