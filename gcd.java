@@ -27,7 +27,7 @@ public class gcd {
          System.out.print(find_gcd(a,b));
     }
 }
-//================================  shortest code =====================================
+//================================  shortest code =====================================  Complexity = O(log(min(a, b))).
 import java.util.*;
 class HelloWorld {
     public static void main(String[] args) {
