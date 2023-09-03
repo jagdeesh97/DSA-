@@ -1,5 +1,5 @@
+//============================= iterative way ==================================================
 import java.util.Scanner;
-
 public class gcd {
 
     public static int find_gcd(int a, int b) {
@@ -27,6 +27,23 @@ public class gcd {
          System.out.print(find_gcd(a,b));
     }
 }
+//================================  shortest code =====================================
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        
+        while(b > 0){
+            int temp  = a;
+            a = b;
+            b = temp % b;
+        }
+        System.out.print(a);
+    }
+}
+//====================== or other way  recursion=====================================================
 
 //import java.util.*;
 //class HelloWorld {
