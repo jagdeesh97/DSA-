@@ -33,3 +33,8 @@ public class magic_Number {
     }
 
 }
+
+
+A number is said to be magic number if the sum of its digits are calculated till a single digit is obtained by repeadely adding the sum of its digits.
+     If the single digits is comes to 1 then the number is magisc ortherwise not a magic .
+return true or false in java
