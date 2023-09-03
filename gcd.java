@@ -1,4 +1,4 @@
-//============================= iterative way ==================================================  Euclidean algorithm
+//============================= iterative way ============================Complexity = O(max(a, b)).   "subtraction-based" or "naive" method, to find the greatest common divisor (GCD).
 import java.util.Scanner;
 public class gcd {
 
