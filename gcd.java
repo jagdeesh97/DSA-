@@ -1,4 +1,4 @@
-//============================= iterative way ==================================================
+//============================= iterative way ==================================================  Euclidean algorithm
 import java.util.Scanner;
 public class gcd {
 
@@ -27,7 +27,7 @@ public class gcd {
          System.out.print(find_gcd(a,b));
     }
 }
-//================================  shortest code =====================================  Complexity = O(log(min(a, b))).
+//================================  shortest code =====================================  Complexity = O(log(min(a, b))).   Euclidean algorithm
 import java.util.*;
 class HelloWorld {
     public static void main(String[] args) {
