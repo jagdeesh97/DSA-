@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+       // int len = (""+n).length();
+       //int len = (int)(Math.log10(n) + 1);
+       int count = 0;
+       while(n>0){
+           n /= 10;
+           count++;
+       }
+        //System.out.print("No of digits in number are =  "+len);
+        System.out.print("No of digits in number are =  "+count);
+    }
+}
