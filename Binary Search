@@ -134,3 +134,55 @@ public class HelloWorld {
         binarySearch.search(target);
     }
 }
+==============================================================Output In sorted index manner=======================================
+import java.util.*;
+class HelloWorld {
+    public static void binarySearch(int arr[], int left, int right, int target) {
+        if (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                List<Integer> indices = new ArrayList<>();
+
+                // Collect indices to the left of the initial found position
+                int leftIndex = mid - 1;
+                while (leftIndex >= left && arr[leftIndex] == target) {
+                    indices.add(leftIndex);
+                    leftIndex--;
+                }
+
+                // Add the initial found position
+                indices.add(mid);
+
+                // Collect indices to the right of the initial found position
+                int rightIndex = mid + 1;
+                while (rightIndex <= right && arr[rightIndex] == target) {
+                    indices.add(rightIndex);
+                    rightIndex++;
+                }
+
+                // Sort and print the indices
+                Collections.sort(indices);
+                for (int index : indices) {
+                    System.out.println("Element found at index " + index);
+                }
+            } else if (arr[mid] < target) {
+                binarySearch(arr, mid + 1, right, target);
+            } else {
+                binarySearch(arr, left, mid - 1, target);
+            }
+        } else {
+            System.out.println("Element not found");
+        } 
+        
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        int target = sc.nextInt();
+        binarySearch(arr,0,n-1,target);
+    }
+}
