@@ -41,3 +41,53 @@ public class No_pair_sum {
         pairsSum(arr,n,k);
     }
 }
+//================================== Using HashMap ==================================================
+import java.util.*;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int sum = sc.nextInt();
+
+        // Create a HashMap to store elements and their frequencies
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        boolean flag = false;
+
+        for (int i = 0; i < n; i++) {
+            int complement = sum - arr[i];
+
+            // Check if the complement exists in the map
+            if (map.containsKey(complement)) {
+                int complementCount = map.get(complement);
+                if (complement == arr[i]) {
+                    // If the complement is the same as the current element, make sure there are at least 2 occurrences
+                    if (complementCount >= 2) {
+                        System.out.print("(" + arr[i] + " , " + arr[i] + ") , ");
+                        flag = true;
+                    }
+                } else {
+                    // Print the pair
+                    System.out.print("(" + arr[i] + " , " + complement + ") , ");
+                    flag = true;
+                }
+            }
+
+            // Update the frequency of the current element in the map
+            if (map.containsKey(arr[i])) {
+                map.put(arr[i], map.get(arr[i]) + 1);
+            } else {
+                map.put(arr[i], 1);
+            }
+        }
+
+        if (!flag) {
+            System.out.print("Pair is not exists");
+        }
+    }
+}
