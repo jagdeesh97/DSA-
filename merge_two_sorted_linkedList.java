@@ -24,7 +24,7 @@ public class merge_two_sorted_linkedList {
         }
         ptr.next=newNode;
     }
-    public  void addLast1(int val){   //creating first linked list
+    public  void addLast1(int val){   //creating second linked list
         Node newNode=new Node(val);
         if(head2==null){
             head2=newNode;
