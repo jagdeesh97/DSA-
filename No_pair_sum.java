@@ -91,3 +91,42 @@ class HelloWorld {
         }
     }
 }
+
+//========================================== javascript code ===================================================================
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+
+function findPairsWithSum(arr, targetSum) {
+    const seen = {}; // JavaScript object to store elements and their frequencies
+    const pairs = [];
+    
+    for (let i = 0; i < arr.length; i++) {
+        const complement = targetSum - arr[i];
+
+        // Check if the complement exists in the 'seen' object
+        if (seen[complement]) {
+            pairs.push([arr[i], complement]);
+        }
+
+        // Update the frequency of the current element in the 'seen' object
+        seen[arr[i]] = true;
+    }
+
+    return pairs;
+}
+
+
+const input = prompt("Enter array elements...");
+const arr = input.split(" ").map(Number);
+const targetSum = prompt("Enter target sum for pair..");
+const pairs = findPairsWithSum(arr, targetSum);
+
+
+if (pairs.length > 0) {
+    for (const pair of pairs) {
+        console.log(`Pair found: (${pair[0]}, ${pair[1]})`);
+    }
+} else {
+    console.log("Pair does not exist");
+}
+
