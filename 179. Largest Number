@@ -3,8 +3,9 @@ class Solution {
     public String largestNumber(int[] nums) {
         String[] str = new String[nums.length];
         for (int i = 0; i < nums.length; i++) {
-            str[i] = Integer.toString(nums[i]);
-        }
+           str[i] = Integer.toString(nums[i]); // or you can do
+           //str[i] = nums[i] + "";
+         }
 
         Arrays.sort(str, new Comparator<String>() {
             public int compare(String a, String b) {
