@@ -24,7 +24,7 @@ class Solution {
             ans += s;
         }
 
-        return ans.toString();
+        return ans;
 
     }
 }
