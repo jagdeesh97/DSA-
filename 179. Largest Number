@@ -17,9 +17,9 @@ class Solution {
             return "0"; // Special case when the largest number is "0"
         }
 
-        StringBuilder ans = new StringBuilder();
+       String ans = "";
         for (String s : str) {
-            ans.append(s);
+            ans += s;
         }
 
         return ans.toString();
