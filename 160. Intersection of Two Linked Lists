@@ -1,3 +1,56 @@
+//=================================================== java program ===========================================================================
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    if (headA == null || headB == null) {
+        return null; // If either list is empty, there is no intersection.
+    }
+    
+    int lenA = getLength(headA);
+    int lenB = getLength(headB);
+    
+    int diff = Math.abs(lenA - lenB);
+    
+    if (lenA > lenB) {
+        for (int i = 0; i < diff; i++) {
+            headA = headA.next; // Move head1 ahead by the difference in lengths
+        }
+    } else {
+        for (int i = 0; i < diff; i++) {
+            headB = headB.next; // Move head2 ahead by the difference in lengths
+        }
+    }
+    
+    while (headA != null && headB != null) {
+        if (headA == headB) {
+            return headA; // Found the intersection node
+        }
+        headA = headA.next;
+        headB = headB.next;
+    }
+    
+    return null; // No intersection found
+}
+
+    public static int getLength(ListNode head) { 
+    int length = 0;
+         while (head != null) {
+             length++;
+             head = head.next;
+         }
+    return length;
+    }
+}
 
 
 //=========================================== Problem Statement ==================================================================
@@ -11,3 +64,11 @@ Output: Intersected at '2'
 
 Input: intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
 Output: No intersection
+//=================================== Solution =============================
+
+To find the intersection point of two singly linked lists, you can follow the following steps:
+
+Traverse both linked lists to find their lengths.
+Calculate the difference in lengths between the two lists.
+Move the pointer of the longer list ahead by the difference in lengths.
+Traverse both lists in parallel until you find the intersection node.
