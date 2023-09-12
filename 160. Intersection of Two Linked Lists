@@ -1,4 +1,4 @@
-//=================================================== java program =========================================================================== complexity O(length1 * lenght2)
+//=================================================== java program ========================================== complexity O(length1 * lenght2)
    public Node getIntersectionNode(Node head1, Node head2)
     {
         while (head2 != null) {
@@ -13,11 +13,11 @@
             head2 = head2.next;
         }
         // If intersection is not present between the lists,
-        // return NULL.
+        // return NULL;
         return null;
     }
 
-//======================================================== Second approach is better =====================================================
+//======================================================== Second approach is better ========================Complexity O(length1 + length2)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
