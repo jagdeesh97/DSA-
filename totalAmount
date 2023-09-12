@@ -1,0 +1,12 @@
+//===================== Calculate total Rupees in javascript ===========================================
+var stdin = process.openStdin();
+stdin.addListener("data", function(d){
+    var denominations = d.toString().trim().split(" ").map(Number);
+    
+     var denominationsValues = [0.25, 0.5, 1, 2, 5, 10];
+    var totalAmount = 0;
+    for(var i=0; i<denominations.length; i++){
+        totalAmount += denominations[i] * denominationsValues[i];
+    }
+    console.log(totalAmount.toFixed(2));
+});
