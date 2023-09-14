@@ -60,6 +60,39 @@ The space complexity of the code is O(k), where 'k' is the number of iterations.
 //            if (slow == 1 || fast == 1) {
 //                return true;  // If either of them reaches 1, it's a happy number.
 //            }
+
+ //================================= Happy number in JavaScript ================================================
+    let n = prompt("Enter a number: ");
+
+if (isHappy(Number(n))) {
+    console.log("Number is a happy number");
+} else {
+    console.log("Number is not a happy number");
+}
+
+function isHappy(n) {
+    let hm = {}; // Use an object as a hashmap
+
+    while (n !== 1 && !hm[n]) {
+        hm[n] = 1;
+        n = changeNumber(n);
+    }
+
+    return n === 1;
+}
+
+function changeNumber(num) {
+    let sum = 0;
+
+    while (num > 0) {
+        let r = num % 10;
+        sum += r * r;
+        num = Math.floor(num / 10); // Corrected the division
+    }
+
+    return sum;
+}
+
 //        } while (slow != fast);
 //
 //        return false;  // If there's a cycle and neither of them reached 1, it's not a happy number.
