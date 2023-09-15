@@ -1,4 +1,32 @@
 //===================================================================================================
+Copying the elements: O(n + m)
+Sorting the merge array: O((n + m) * log(n + m))
+Determining the median: O(1) (constant time)
+
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int m = nums2.length;
+        
+        int merge[]=new int[n+m];
+        System.arraycopy(nums1, 0, merge, 0,  n);
+        System.arraycopy(nums2,0,merge,n, m);
+        Arrays.sort(merge);
+
+        int len=merge.length;
+        if(len%2==0)
+        {
+            int mid1=merge[len/2];
+            int mid2=merge[len/2 -1];
+            return  (mid1+mid2)/2.0;
+        }
+        else
+        {
+            int mid=merge[len/2];
+            return mid;
+        }
+    }
+}
 
 //===================================== Statement =======================================================
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
