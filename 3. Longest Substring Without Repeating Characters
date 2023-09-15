@@ -1,4 +1,53 @@
-//================================================== Solution ==================== complexity 
+//======================================Solution Using hashset ==============Time & Space complexity O(n)
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int left = 0;
+        int right = 0;
+        int result = 0;
+
+        Set<Character> set = new HashSet<>();
+        while(right < s.length()){
+            char ch = s.charAt(right);
+            if(!set.contains(ch)){
+                set.add(ch);
+                result = Math.max(result, set.size());
+                right++; 
+            }else{
+                set.remove(s.charAt(left));
+                left++;
+            }
+        }
+        return result;
+    }
+}
+//================================================ Using hashMap ================================================
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+         HashMap<Character, Integer> hm = new HashMap<>();
+        int count = 0;
+        int longest = 0;
+        int startIndex = 0; // Keeps track of the start index of the current substring
+        
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            
+            if (hm.containsKey(ch) && hm.get(ch) >= startIndex) {
+                startIndex = hm.get(ch) + 1;
+                count = i - startIndex + 1;
+            } else {
+                count++;
+            }
+            
+            hm.put(ch, i);
+            
+            if (longest < count) {
+                longest = count;
+            }
+        }
+        
+        return longest;
+    }
+}
 //======================================= Problem Statements ============================================================
 Given a string s, find the length of the longest 
 substring
