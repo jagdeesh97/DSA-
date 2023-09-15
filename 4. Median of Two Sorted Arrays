@@ -27,6 +27,21 @@ class Solution {
         }
     }
 }
+//==================================== JavaScript code ===========================================Time =  O((m + n) * log(m + n)). Space = O(m+n)
+var findMedianSortedArrays = function(nums1, nums2) {
+    var arr = nums1.concat(nums2);
+    arr.sort((a, b) => a - b);
+    
+    var n = arr.length;
+    if(n% 2 == 0){
+        let mid1 = n / 2;
+        let mid2 = n / 2 - 1;
+        return (arr[mid1] + arr[mid2]) / 2; 
+    }else{
+        let mid = Math.floor(n / 2);
+        return (arr[mid]);
+    }
+};
 //===================================== Using Binary Search =======================================time complexity = O(log(min(m, n)))
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
